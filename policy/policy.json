@@ -1,0 +1,24 @@
+{
+    "properties":{
+        "description": "This policy will audit all the resources in policy-vm with location eastus",
+        "displayName": "Audit-location-policy-vm",
+        "mode": "all",
+        "policyRule":{
+            "if":{
+                "allOf": [
+                    {
+                        "field": "type",
+                        "equals": "Microsoft.Compute/virtualMachines"
+                    },
+                    {
+                        "field": "Location",
+                        "equals": "eastus"
+                    }
+                ]
+            },
+            "then": {
+                "effect": "audit"
+            }
+        }
+    }
+}
